@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -15,8 +12,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
+    @Setter
     private String name;
     private String password;
+    @Setter
     private String hashedPassword;
     private List<Ticket> ticketsBooked;
     private String userId;
@@ -29,7 +28,7 @@ public class User {
         this.userId = userId;
     }
     public User(){}
-
+    
     public String getName() {
         return name;
     }
@@ -54,14 +53,6 @@ public class User {
 
     public String getUserId() {
         return userId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
     }
 
     public void setTicketsBooked(List<Ticket> ticketsBooked) {
